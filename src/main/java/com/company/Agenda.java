@@ -8,6 +8,13 @@ public class Agenda {
     private List<Contacto> contactoList = new ArrayList<>();
 
 
+    public void agregarContactos(Contacto... c) {
+        vefificaSiLaAgendaYaEstaLlena();
+        for (Contacto contacto : c) {
+            contactoList.add(contacto);
+        }
+    }
+
     public void agregarContacto(Contacto c) {
         vefificaSiLaAgendaYaEstaLlena();
         contactoList.add(c);

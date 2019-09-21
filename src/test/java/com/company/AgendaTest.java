@@ -28,8 +28,12 @@ public class AgendaTest {
         Boolean encontroContacto = agenda.buscarContacto("Santiago");
         Assert.assertEquals("No deberia encontrar el contacto porque no tienen mismo nombre", encontroContacto, false);
     }
+
     @Test
-    public void deberiaArrojarQueLaAgendaYaEstaLLena(){
+    public void deberiaArrojarQueLaAgendaYaEstaLLena() {
+        Contacto contacto = new Contacto("pepe", "3022653192", "santi-1524@hotmail.com");
+        agenda.agregarContactos(contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto, contacto
+                , contacto, contacto, contacto);
 
     }
 }
