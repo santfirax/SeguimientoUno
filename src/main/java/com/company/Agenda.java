@@ -33,7 +33,7 @@ public class Agenda {
         if (!contactoList.isEmpty()) {
             Optional<Contacto> optionalContacto = contactoList.stream().parallel().filter(contacto -> contacto.getNombre().equals(nombre)).findAny();
             if (optionalContacto.isPresent()) {
-                optionalContacto.get().toString();
+                LOG.info(optionalContacto.get().toString());
             } else {
                 LOG.info("Contacto no encontrado");
             }
