@@ -3,13 +3,28 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.5'
+    }
+}
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'jacoco'
+apply plugin: 'info.solidsoft.pitest'
+
 dependencies {
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile "org.slf4j:slf4j-simple:1.7.7"
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.mockito:mockito-core:3.0.0"
+    testCompile "org.slf4j:slf4j-simple:1.7.7"
 
 
 }
@@ -24,6 +39,15 @@ jacocoTestReport{
         xml.enabled(false)
         csv.enabled(false)
         html.destination file("${buildDir}/jacocoHtml")
+        
     }
 }
+pitest {
+    targetClasses = ['com.company.*']  //by default "${project.group}.*"
+    pitestVersion = '1.4.1' //not needed when a default PIT version should be used
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+}
 test.finalizedBy(jacocoTestCoverageVerification,jacocoTestReport,jacocoTestCoverageVerification)
+

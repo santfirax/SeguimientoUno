@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ * @author Jose Santiago Molano Perdomo, jose.molano@upb.edu.co
+ */
 public class Cuenta {
     private final String nombreDelTitular;
     private double saldo;

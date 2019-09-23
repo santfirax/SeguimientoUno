@@ -1,39 +1,33 @@
 package com.company;
 
-import java.util.Objects;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+/**
+ * @author Jose Santiago Molano Perdomo, jose.molano@upb.edu.co
+ */
 public class Contacto {
     private final String nombre;
-    private final String telefono;
-    private final String correo;
+    private String telefono;
+    private String correo;
 
-    public Contacto(String nombre, String telefono, String correo) {
+    private Contacto(String nombre) {
         this.nombre = nombre;
+
+    }
+
+    public static Contacto crearNuevoContactoConNombre(String nombre) {
+        return new Contacto(nombre);
+    }
+
+    public Contacto conTelefono(String telefono) {
         this.telefono = telefono;
+        return this;
+    }
+
+    public Contacto yCorreo(String correo) {
         this.correo = correo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Contacto contacto = (Contacto) o;
-        return nombre.equals(contacto.nombre);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("main.java.com.company.Contacto{");
-        sb.append("nombre='").append(nombre).append('\'');
-        sb.append(", telefono='").append(telefono).append('\'');
-        sb.append(", correo='").append(correo).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return this;
     }
 
     public String getNombre() {
@@ -46,5 +40,35 @@ public class Contacto {
 
     public String getCorreo() {
         return correo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (!(o instanceof Contacto)) return false;
+
+        Contacto contacto = (Contacto) o;
+
+        return new EqualsBuilder()
+                .append(getNombre(), contacto.getNombre())
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(getNombre())
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder("Contacto{")
+                .append("nombre='").append(nombre).append('\'')
+                .append(", telefono='").append(telefono).append('\'')
+                .append(", correo='").append(correo).append('\'')
+                .append('}')
+                .toString();
     }
 }
