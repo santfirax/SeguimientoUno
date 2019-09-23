@@ -30,7 +30,7 @@ public class AgendaTest {
     public void deberiaEncontrarContactoAgregoEnLaAgenda() {
         agenda.agregarContacto(contacto);
 //        Boolean encontroContacto = agenda.buscarContacto("Santiago"); me dio sueño para refactorizar mas
-        Boolean encontroContacto = true;
+        Boolean encontroContacto = false;
         Assert.assertEquals("Deberia encontrar el Nombre en la Agenda", encontroContacto, true);
     }
 
