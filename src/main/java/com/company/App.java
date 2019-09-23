@@ -26,7 +26,6 @@ public class App {
         System.out.println("E) Ver espacios libre de la agenda");
         System.out.println("S) Para salir Del Programa");
         System.out.println("Ingrese una opción:");
-        String opcion = scanner.nextLine();
-        return opcion;
+        return scanner.nextLine();
     }
 }
