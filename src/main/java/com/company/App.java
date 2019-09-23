@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 /**
  * @author Jose Santiago Molano Perdomo, jose.molano@upb.edu.co
  */
@@ -18,7 +16,6 @@ public class App {
     }
 
     private static String mostrarOpcionesDeMenu() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("A) Para agregar un contacto");
         System.out.println("B) Para buscar un contacto");
         System.out.println("C) Listar Agenda");
@@ -26,6 +23,6 @@ public class App {
         System.out.println("E) Ver espacios libre de la agenda");
         System.out.println("S) Para salir Del Programa");
         System.out.println("Ingrese una opción:");
-        return scanner.nextLine();
+        return Menu.getInstance().leerEntradaDeConsola();
     }
 }
