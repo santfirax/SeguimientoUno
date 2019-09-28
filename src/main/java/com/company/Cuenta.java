@@ -26,6 +26,6 @@ public class Cuenta {
         if (cantidad > saldo) {
             throw new RuntimeException("SALDO INSUFICIENTE");
         }
-        this.saldo -= saldo;
+        this.saldo -= cantidad;
     }
 }
