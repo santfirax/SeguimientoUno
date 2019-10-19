@@ -4,10 +4,10 @@ public class Catalogo {
     private String codigo;
     private String producto;
     private String tipo;
-    private String precio;
+    private double precio;
     private String inventario;
 
-    public Catalogo(String codigo, String producto, String tipo, String precio, String inventario) {
+    public Catalogo(String codigo, String producto, String tipo, double precio, String inventario) {
         this.codigo = codigo;
         this.producto = producto;
         this.tipo = tipo;
@@ -27,7 +27,7 @@ public class Catalogo {
         return tipo;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
